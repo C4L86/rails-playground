@@ -4,4 +4,7 @@ class VotesController < ApplicationController
 
   def ballot_box
   end
+
+  def results
+  end
 end
