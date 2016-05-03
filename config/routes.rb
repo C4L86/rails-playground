@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  root to: "votes#ballot_box"
+  root to: "votes#new"
 
-  get 'votes/results' => 'votes#results'
+  post 'votes/create'  => 'votes#create'
+  get  'votes/results' => 'votes#results'
 end

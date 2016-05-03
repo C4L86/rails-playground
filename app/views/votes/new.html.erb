@@ -1,0 +1,13 @@
+<h2>CHOOSE THE SUPERIOR '80s SEQUEL</h2>
+
+<h3>
+There can be but one,
+<br />
+choose wisely...
+</h3>
+
+<%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
+  <%= f.submit :value => @movie_1.title, :upvote_id => @movie_1.id, :downvote_id => @movie_2.id, :vote_button => 1, :user_id => current_user.id, :type => :image, :src => @movie_1.poster, :title => @movie_1.title.upcase %>
+
+  <%= f.submit :upvote_id => @movie_2.id, :downvote_id => @movie_1.id, :vote_button => 2, :user_id => current_user.id, :type => :image, :src => @movie_2.poster, :title => @movie_2.title.upcase %>
+<% end %>
