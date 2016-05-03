@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :movies
+  resources :votes
+
   namespace :admin do
     resources :users
     resources :movies
