@@ -3,7 +3,7 @@ class VotesController < ApplicationController
   before_action :authenticate_user!
 
   def new
-    @votes       = Vote.new
+    @vote        = Vote.new
     random_movie = Movie.ids.sample(2)
 
     @movie_1 = Movie.find_by_id(random_movie[0])
@@ -11,9 +11,9 @@ class VotesController < ApplicationController
   end
 
   def create
-    @votes = Vote.new(vote_params)
+    @vote = Vote.new(vote_params)
 
-    if @votes.save
+    if @vote.save
       redirect_to @results
     else
       render :new
@@ -23,7 +23,7 @@ class VotesController < ApplicationController
 private
 
   def vote_params
-    params.require(:votes).permit(:upvote_id, :downvote_id, :vote_button, :user_id)
+    params.require(:vote).permit(:upvote_id, :downvote_id, :vote_button, :user_id)
   end
 
   def results

@@ -6,7 +6,7 @@ There can be but one,
 choose wisely...
 </h3>
 
-<%= form_for @votes, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
+<%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
   <%= f.hidden_field :upvote_id, value: @movie_1.id %>
   <%= f.hidden_field :downvote_id, value: @movie_2.id %>
   <%= f.hidden_field :vote_button, value: 1 %>
@@ -14,7 +14,7 @@ choose wisely...
   <%= f.submit :type => :image, :src => @movie_1.poster, :title => @movie_1.title.upcase %>
 <% end %>
 
-<%= form_for @votes, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
+<%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
   <%= f.hidden_field :upvote_id, value: @movie_2.id %>
   <%= f.hidden_field :downvote_id, value: @movie_1.id %>
   <%= f.hidden_field :vote_button, value: 1 %>
