@@ -14,7 +14,7 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
 
     if @vote.save
-      redirect_to @results
+      redirect_to @vote
     else
       render :new
     end
@@ -26,6 +26,6 @@ private
     params.require(:vote).permit(:upvote_id, :downvote_id, :vote_button, :user_id)
   end
 
-  def results
+  def show
   end
 end

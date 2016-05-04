@@ -1,0 +1,9 @@
+<h1>Vote Result</h1>
+
+<p>
+  <h3><%= Movie.find_by_id(@vote.upvote_id).title %></h3>
+  <br />
+  <h4>TROUNCES</h4>
+  <br />
+  <h3><%= Movie.find_by_id(@vote.downvote_id).title %></h3>
+</p>
