@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   root to: "votes#new"
 
   post 'votes/create'  => 'votes#create'
-  get  'votes/show' => 'votes#show'
+  get  'votes/index'   => 'votes#index'
+  get  'votes/show'    => 'votes#show'
 end
