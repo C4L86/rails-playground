@@ -1,10 +1,11 @@
 <h1>Vote Result</h1>
 
+<%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+
+<%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+
 <p>
   <h3><%= Movie.find(Vote.find(params[:id]).upvote_id).title %></h3>
-  <br />
   <h4>TROUNCES</h4>
-  <%=  %>
-  <br />
   <h3><%= Movie.find(Vote.find(params[:id]).downvote_id).title %></h3>
 </p>

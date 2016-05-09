@@ -26,9 +26,9 @@ private
     params.require(:vote).permit(:upvote_id, :downvote_id, :vote_button, :user_id)
   end
 
-  def index
-  end
+  # def index
+  # end
 
-  def show
-  end
+  # def show
+  # end
 end
