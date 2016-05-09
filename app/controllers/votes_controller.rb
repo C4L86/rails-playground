@@ -14,7 +14,6 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
 
     if @vote.save
-      session[:tmp_vote] = params[:vote]
       redirect_to @vote
     else
       render :new
@@ -28,11 +27,8 @@ private
   end
 
   def index
-    @user_vote = session[:tmp_vote]
-    session[:tmp_vote] = nil
   end
 
   def show
-
   end
 end
