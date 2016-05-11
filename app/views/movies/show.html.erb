@@ -1,21 +1,31 @@
-<h2>VOTES RESULTS FOR</h2>
-<h2><%= @movie.title.upcase %></h2>
-
+<h2>STATS FOR</h2>
+<h2><h2><%= @movie.title.upcase %></h2></h2>
 <p>
-  <!-- Need to figure out the correct route for the below link -->
   <%= link_to("Back", "/votes/show/#{Vote.order(:id).last.id}") %>
   <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
   <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
 </p>
 
 <p>
-  <% @votes.each do |round| %>
-    <% if round.upvote_id == @movie.id %>
-      WIN vs <%= Movie.find(round.downvote_id).title %>
-      <br />
-    <% elsif round.downvote_id == @movie.id %>
-      LOSS vs <%= Movie.find(round.upvote_id).title %>
-      <br />
-    <% end %>
-  <% end %>
+  <%= link_to("Total Rounds", "/movies/breakdown/#{@movie.id}") %>: <%= @movie.total_rounds %>
+  <br />
+  Upvotes: <%= @movie.movie_upvotes %>
+  <br />
+  Downvotes: <%= @movie.movie_downvotes %>
+  <br />
+  Win Percent: <%= @movie.movie_win_percent %>
+  <br />
+  Loss Percent: <%= @movie.movie_loss_percent %>
+  <br />
+  Button 1 Upvotes: <%= @movie.movie_button_1_up %>
+  <br />
+  Button 1 Downvotes: <%= @movie.movie_button_1_down %>
+  <br />
+  Button 2 Upvotes: <%= @movie.movie_button_2_up %>
+  <br />
+  Button 2 Downvotes: <%= @movie.movie_button_2_down %>
+</p>
+
+<p>
+  <img src="<%= @movie.poster %>" title="<%= @movie.title.upcase %>">
 </p>

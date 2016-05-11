@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   get  'votes/show/:id'   => 'votes#show'
 
   get 'movies/show/:id' => 'movies#show'
+  get 'movies/breakdown/:id'    => 'movies#breakdown'
 end

@@ -39,7 +39,7 @@ class Movie < ActiveRecord::Base
   def movie_button_2_up
     button_2_vote = Vote.where({"vote_button" => 2})
     button_2_upvote = button_2_vote.where({"upvote_id" => self.id})
-    y.count
+    button_2_upvote.count
   end
 
   def movie_button_1_down
