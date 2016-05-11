@@ -2,10 +2,12 @@
 
 <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
 
+<%= link_to("Vote Record", movies_path, :method => :get) %>
+
 <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
 
 <p>
-  <h3><%= Movie.find(Vote.find(params[:id]).upvote_id).title %></h3>
+  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).upvote_id).poster), "/movies/show/#{Movie.find(Vote.find(params[:id]).upvote_id).id}", :title => Movie.find(Vote.find(params[:id]).upvote_id).title.upcase) %>
   <h4>TROUNCES</h4>
-  <h3><%= Movie.find(Vote.find(params[:id]).downvote_id).title %></h3>
+  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).downvote_id).poster), "/movies/show/#{Movie.find(Vote.find(params[:id]).downvote_id).id}", :title => Movie.find(Vote.find(params[:id]).downvote_id).title.upcase) %>
 </p>

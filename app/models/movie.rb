@@ -1,9 +1,9 @@
 class Movie < ActiveRecord::Base
-  
+
   def movie_rank
     x = {}
-    self.each do |m|
-      x[m.id] = m.movie_win_percent
+    self.each do |movie|
+      x[movie.id] = movie.movie_win_percent
     end
     movie_sorted_rank_arr = x.sort_by(&:last).reverse
   end

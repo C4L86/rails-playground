@@ -17,5 +17,7 @@ Rails.application.routes.draw do
 
   post 'votes/create' => 'votes#create'
   get  'votes/index'  => 'votes#index'
-  get  'votes/show'   => 'votes#show'
+  get  'votes/show/:id'   => 'votes#show'
+
+  get 'movies/show/:id' => 'movies#show'
 end
