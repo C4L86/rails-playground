@@ -5,6 +5,7 @@
   <%= link_to("Back", "/movies/index/#{@movie.id}") %>
   <%= link_to("Vote Record", votes_path, :method => :get) %>
   <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+  <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
   <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
 </p>
 

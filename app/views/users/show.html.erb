@@ -1,0 +1,18 @@
+<h1>Your Profile</h1>
+
+<p>
+<%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+<%= link_to("Vote Record", votes_path, :method => :get) %>
+<%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+</p>
+
+<p>
+  <h4>Email</h4>
+  <%= @user.email %>
+  <br />
+  <h4>Your Votes</h4>
+  <% @votes.each do |vote| %>
+    <%= Movie.find(vote.upvote_id).title %> beat <%= Movie.find(vote.downvote_id).title %>
+    <br />
+  <% end %>
+</p>
