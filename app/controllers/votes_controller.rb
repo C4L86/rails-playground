@@ -20,15 +20,17 @@ class VotesController < ApplicationController
     end
   end
 
+  def index
+    @movies = Movie.all
+  end
+
+  def show
+  end
+
 private
 
   def vote_params
     params.require(:vote).permit(:upvote_id, :downvote_id, :vote_button, :user_id)
   end
 
-  # def index
-  # end
-
-  # def show
-  # end
 end

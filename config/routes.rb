@@ -15,10 +15,10 @@ Rails.application.routes.draw do
 
   root to: "votes#new"
 
-  post 'votes/create' => 'votes#create'
-  get  'votes/index'  => 'votes#index'
-  get  'votes/show/:id'   => 'votes#show'
+  post 'votes/create'   => 'votes#create'
+  get  'votes/index'    => 'votes#index'
+  get  'votes/show/:id' => 'votes#show'
 
-  get 'movies/show/:id' => 'movies#show'
-  get 'movies/breakdown/:id'    => 'movies#breakdown'
+  get 'movies/index/:id' => 'movies#index'
+  get 'movies/show/:id'  => 'movies#show'
 end

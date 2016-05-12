@@ -1,13 +1,5 @@
 class Movie < ActiveRecord::Base
 
-  def movie_rank
-    x = {}
-    self.each do |movie|
-      x[movie.id] = movie.movie_win_percent
-    end
-    movie_sorted_rank_arr = x.sort_by(&:last).reverse
-  end
-  
   def total_rounds
     (self.movie_upvotes) + (self.movie_downvotes)
   end
