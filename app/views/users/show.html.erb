@@ -13,8 +13,11 @@
   <%= @user.email %>
   <br />
   <h4>Your Votes</h4>
+  Total Votes: <%= @votes.count %>
+  <br />
+  <br />
   <% @votes.each do |vote| %>
-    <%= Movie.find(vote.upvote_id).title %> beat <%= Movie.find(vote.downvote_id).title %>
+    <%= link_to("#{Movie.find(vote.upvote_id).title}", "/movies/index/#{Movie.find(vote.upvote_id).id}") %> beat <%= link_to("#{Movie.find(vote.downvote_id).title}", "/movies/index/#{Movie.find(vote.downvote_id).id}") %>
     <br />
   <% end %>
 </p>
