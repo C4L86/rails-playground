@@ -2,7 +2,7 @@
 <h2><%= @movie.title.upcase %></h2>
 
 <p>
-  <%= link_to("Back", :back) %>
+  <%= link_to("Back", :back, {class: "back_button"}) %>
   <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
   <%= link_to("Vote Record", votes_path, :method => :get) %>
   <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
