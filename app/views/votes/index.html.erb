@@ -12,10 +12,10 @@
   <% rank = 0 %>
   
   <% Vote.movie_rank.each do |movie| %>
-    <%= link_to("#{Movie.find_by_id(movie[0]).title}", "/movies/index/#{movie[0]}") %>
+    <%= link_to("#{Movie.find(movie[0]).title}", "/movies/index/#{movie[0]}") %>
     <br />
     Rank: <%= rank += 1 %>
-    Win Percent: <%= movie[1] %>
+    Weight: <%= movie[1] %>
     <br />
   <% end %>
 
