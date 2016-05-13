@@ -23,4 +23,5 @@ Rails.application.routes.draw do
   get 'movies/show/:id'  => 'movies#show'
 
   get 'users/show' => 'users#show'
+  
 end

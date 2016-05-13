@@ -2,7 +2,7 @@
 <h2><%= @movie.title.upcase %></h2>
 
 <p>
-  <%= link_to("Back", "/movies/index/#{@movie.id}") %>
+  <%= link_to("Back", :back) %>
   <%= link_to("Vote Record", votes_path, :method => :get) %>
   <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
   <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
@@ -12,10 +12,10 @@
 <p>
   <% @votes.each do |round| %>
     <% if round.upvote_id == @movie.id %>
-      WIN vs <%= Movie.find(round.downvote_id).title %>
+      WIN vs <%= link_to("#{Movie.find(round.downvote_id).title}", "/movies/index/#{Movie.find(round.downvote_id).id}") %>
       <br />
     <% elsif round.downvote_id == @movie.id %>
-      LOSS vs <%= Movie.find(round.upvote_id).title %>
+      LOSS vs <%= link_to("#{Movie.find(round.upvote_id).title}", "/movies/index/#{Movie.find(round.upvote_id).id}") %>
       <br />
     <% end %>
   <% end %>
