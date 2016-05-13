@@ -8,7 +8,7 @@
 </p>
 
 <p>
-  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).upvote_id).poster), "/movies/index/#{Movie.find(Vote.find(params[:id]).upvote_id).id}", :title => Movie.find(Vote.find(params[:id]).upvote_id).title.upcase) %>
+  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).upvote_id).poster), "/movies/index/#{Vote.find(params[:id]).upvote_id}", :title => Movie.find(Vote.find(params[:id]).upvote_id).title.upcase) %>
   <h4>TROUNCES</h4>
-  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).downvote_id).poster), "/movies/index/#{Movie.find(Vote.find(params[:id]).downvote_id).id}", :title => Movie.find(Vote.find(params[:id]).downvote_id).title.upcase) %>
+  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).downvote_id).poster), "/movies/index/#{Vote.find(params[:id]).downvote_id}", :title => Movie.find(Vote.find(params[:id]).downvote_id).title.upcase) %>
 </p>

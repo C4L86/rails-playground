@@ -17,7 +17,7 @@
   <br />
   <br />
   <% @votes.each do |vote| %>
-    <%= link_to("#{Movie.find(vote.upvote_id).title}", "/movies/index/#{Movie.find(vote.upvote_id).id}") %> beat <%= link_to("#{Movie.find(vote.downvote_id).title}", "/movies/index/#{Movie.find(vote.downvote_id).id}") %>
+    <%= link_to("#{Movie.find(vote.upvote_id).title}", "/movies/index/#{vote.upvote_id}") %> beat <%= link_to("#{Movie.find(vote.downvote_id).title}", "/movies/index/#{vote.downvote_id}") %>
     <br />
   <% end %>
 </p>

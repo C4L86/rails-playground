@@ -12,10 +12,10 @@
 <p>
   <% @votes.each do |round| %>
     <% if round.upvote_id == @movie.id %>
-      WIN vs <%= link_to("#{Movie.find(round.downvote_id).title}", "/movies/index/#{Movie.find(round.downvote_id).id}") %>
+      WIN vs <%= link_to("#{Movie.find(round.downvote_id).title}", "/movies/index/#{round.downvote_id}") %>
       <br />
     <% elsif round.downvote_id == @movie.id %>
-      LOSS vs <%= link_to("#{Movie.find(round.upvote_id).title}", "/movies/index/#{Movie.find(round.upvote_id).id}") %>
+      LOSS vs <%= link_to("#{Movie.find(round.upvote_id).title}", "/movies/index/#{round.upvote_id}") %>
       <br />
     <% end %>
   <% end %>
