@@ -19,7 +19,9 @@ choose wisely...
   <%= f.hidden_field :user_id, value: current_user.id %>
   <%= f.submit :type => :image, :src => @movie_1.poster, :title => @movie_1.title.upcase %>
 <% end %>
+
 <h4>VS</h4>
+
 <%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
   <%= f.hidden_field :upvote_id, value: @movie_2.id %>
   <%= f.hidden_field :downvote_id, value: @movie_1.id %>
