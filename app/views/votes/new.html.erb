@@ -1,31 +1,39 @@
-<h2>WHICH IS THE SUPERIOR '80s SEQUEL?</h2>
+<div class="row">
 
-<h3>
-There can be but one,
-<br />
-choose wisely...
-</h3>
+  <div class="header">Superior Sequel</div>
 
-<p>
-<%= link_to("Vote Record", votes_path, :method => :get) %>
-<%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
-<%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
-</p>
+  <div class="subHeader">80's Edition</div>
 
-<%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
-  <%= f.hidden_field :upvote_id, value: @movie_1.id %>
-  <%= f.hidden_field :downvote_id, value: @movie_2.id %>
-  <%= f.hidden_field :vote_button, value: 1 %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit :type => :image, :src => @movie_1.poster, :title => @movie_1.title.upcase %>
-<% end %>
+  <div class="topNav">
+  <%= link_to("Vote Record", votes_path, :method => :get) %>
+  <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
+  <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+  </div>
 
-<h4>VS</h4>
+  <div>
+  There can be but one,
+  <br />
+  choose wisely...
+  </div>
 
-<%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
-  <%= f.hidden_field :upvote_id, value: @movie_2.id %>
-  <%= f.hidden_field :downvote_id, value: @movie_1.id %>
-  <%= f.hidden_field :vote_button, value: 2 %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.submit :type => :image, :src => @movie_2.poster, :title => @movie_2.title.upcase %>
-<% end %>
+  <div class="voteItem">
+    <%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
+      <%= f.hidden_field :upvote_id, value: @movie_1.id %>
+      <%= f.hidden_field :downvote_id, value: @movie_2.id %>
+      <%= f.hidden_field :vote_button, value: 1 %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit :type => :image, :src => @movie_1.poster, :title => @movie_1.title.upcase %>
+    <% end %>
+
+    <div class="versus">VS</div>
+
+    <%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
+      <%= f.hidden_field :upvote_id, value: @movie_2.id %>
+      <%= f.hidden_field :downvote_id, value: @movie_1.id %>
+      <%= f.hidden_field :vote_button, value: 2 %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit :type => :image, :src => @movie_2.poster, :title => @movie_2.title.upcase %>
+    <% end %>
+  </div>
+
+</div>

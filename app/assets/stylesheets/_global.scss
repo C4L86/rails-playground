@@ -1,0 +1,63 @@
+.header {
+  font-family: $font-helv;
+  color: #323f47;
+  font-size: 40px;
+}
+
+.subHeader {
+  font-family: Bitwise;
+  color: #47efd9;
+  text-shadow: 2px 2px #fd93ff;
+  font-size: 25px;
+}
+
+.topNav {
+  font-family: $font-helv;
+  background-color: #cdd4dd;
+  padding: 5px;
+  margin: 2px;
+  border: 1px solid #c0c6ce;
+  border-radius: 4px;
+}
+
+.topNav a {
+  color: #edf5ff;
+  text-decoration: none;
+  padding: 5px 10px 5px 5px;
+  border-right: 1px solid #c0c6ce;
+}
+
+.topNav a:hover {
+  background-color: #c0c6ce;
+}
+
+.voteItem {
+
+}
+
+.votes_form [src] {
+  border-radius: 4px;
+  float: left;
+  transition: transform 0.35s, box-shadow 0.35s;
+}
+
+.votes_form:hover [src] {
+  transform: scale(1.05);
+  box-shadow: 5px 5px 10px grey;
+}
+
+.versus {
+  font-family: "still time";
+  color: #f43a3a;
+  font-size: 50px;
+  font-weight: 900;
+  text-shadow: 2px 2px #ffda23;
+  float: left;
+  margin: 80px 40px 0 30px;
+  transition: transform 0.35s, text-shadow 0.35s;
+}
+
+.versus:hover {
+  transform: scale(1.5);
+  text-shadow: 2px 2px 10px #ffb923;
+}
