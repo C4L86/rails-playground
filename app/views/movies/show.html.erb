@@ -1,22 +1,29 @@
-<h2>VOTES BREAKDOWN FOR</h2>
-<h2><%= @movie.title.upcase %></h2>
+<div class="row">  
 
-<p>
-  <%= link_to("Back", :back, {class: "back_button"}) %>
-  <%= link_to("Vote Record", votes_path, :method => :get) %>
-  <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
-  <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
-  <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
-</p>
+  <div class="headerItem">
+    <div class="header">Superior Sequel</div>
+    <div class="subHeader">80's Edition</div>
+    <div class="pageHeader"><%= @movie.title.upcase %> VOTES</div>
+  </div>
 
-<p>
-  <% @votes.each do |round| %>
-    <% if round.upvote_id == @movie.id %>
-      WIN vs <%= link_to("#{Movie.find(round.downvote_id).title}", "/movies/index/#{round.downvote_id}") %>
-      <br />
-    <% elsif round.downvote_id == @movie.id %>
-      LOSS vs <%= link_to("#{Movie.find(round.upvote_id).title}", "/movies/index/#{round.upvote_id}") %>
-      <br />
+  <div class="topNav">
+    <%= link_to("Back", :back, {class: "back_button"}) %>
+    <%= link_to("Vote Record", votes_path, :method => :get) %>
+    <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+    <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
+    <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+  </div>
+
+  <div class="mainItem">
+    <% @votes.each do |round| %>
+      <% if round.upvote_id == @movie.id %>
+        WIN vs <%= link_to("#{Movie.find(round.downvote_id).title}", "/movies/index/#{round.downvote_id}") %>
+        <br />
+      <% elsif round.downvote_id == @movie.id %>
+        LOSS vs <%= link_to("#{Movie.find(round.upvote_id).title}", "/movies/index/#{round.upvote_id}") %>
+        <br />
+      <% end %>
     <% end %>
-  <% end %>
-</p>
+  </div>
+
+</div>

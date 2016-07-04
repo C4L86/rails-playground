@@ -2,14 +2,14 @@
 
   <div class="headerItem">
     <div class="header">Superior Sequel</div>
-
     <div class="subHeader">80's Edition</div>
+    <div class="pageHeader">VOTE</div>
   </div>
 
   <div class="topNav">
-  <%= link_to("Vote Record", votes_path, :method => :get) %>
-  <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
-  <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+    <%= link_to("Vote Record", votes_path, :method => :get) %>
+    <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
+    <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
   </div>
 
   <div class="flavorTxt">
@@ -27,7 +27,7 @@
       <%= f.submit :type => :image, :src => @movie_1.poster, :title => @movie_1.title.upcase %>
     <% end %>
 
-    <div class="versus">VS</div>
+    <div class="versusTxt">VS</div>
 
     <%= form_for @vote, url: {action: "create"}, html: {class: "votes_form"} do |f| %>
       <%= f.hidden_field :upvote_id, value: @movie_2.id %>
@@ -36,6 +36,11 @@
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.submit :type => :image, :src => @movie_2.poster, :title => @movie_2.title.upcase %>
     <% end %>
+    <div style="clear: both"></div>
+  </div>
+
+  <div class="footer">
+    site by: <%= link_to("Chris Foral", "https://github.com/c4l86") %>
   </div>
 
 </div>

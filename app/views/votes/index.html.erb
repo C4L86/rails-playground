@@ -1,26 +1,35 @@
-<h2>VOTE RECORDS</h2>
+<div class="row">
 
-<p>
-<%= link_to("Back", :back, {class: "back_button"}) %>
-<%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
-<%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
-<%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
-</p>
+  <div class="headerItem">
+    <div class="header">Superior Sequel</div>
+    <div class="subHeader">80's Edition</div>
+    <div class="pageHeader">VOTE RECORDS</div>
+  </div>
+
+  <div class="topNav">
+    <%= link_to("Back", :back, {class: "back_button"}) %>
+    <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+    <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
+    <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+  </div>
 
 
-<h3>MOVIE RANKS</h3>
+  <div class="flavorTxt">
+    MOVIE RANKS
+    <br/>
+    TOTAL VOTES: <%= Vote.ids.count %> and counting...
+  </div>
+    
+  <div class="mainItem">
+    <% rank = 0 %>
+    
+    <% Vote.movie_rank.each do |movie| %>
+      <%= link_to("#{Movie.find(movie[0]).title}", "/movies/index/#{movie[0]}") %>
+      <br />
+      Rank: <%= rank += 1 %>
+      Weight: <%= movie[1] %>
+      <br />
+    <% end %>
+  </div>
 
-  TOTAL VOTES: <%= Vote.ids.count %> and counting...
-  <br/>
-  
-<p>
-  <% rank = 0 %>
-  
-  <% Vote.movie_rank.each do |movie| %>
-    <%= link_to("#{Movie.find(movie[0]).title}", "/movies/index/#{movie[0]}") %>
-    <br />
-    Rank: <%= rank += 1 %>
-    Weight: <%= movie[1] %>
-    <br />
-  <% end %>
-</p>
+</div>

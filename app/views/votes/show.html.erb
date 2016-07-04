@@ -1,14 +1,29 @@
-<h1>Vote Result</h1>
+<div class="row">  
 
-<p>
-<%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
-<%= link_to("Vote Record", votes_path, :method => :get) %>
-<%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
-<%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
-</p>
+  <div class="headerItem">
+    <div class="header">Superior Sequel</div>
+    <div class="subHeader">80's Edition</div>
+    <div class="pageHeader">YOUR VOTE</div>
+  </div>
 
-<p>
-  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).upvote_id).poster), "/movies/index/#{Vote.find(params[:id]).upvote_id}", :title => Movie.find(Vote.find(params[:id]).upvote_id).title.upcase) %>
-  <h4>TROUNCES</h4>
-  <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).downvote_id).poster), "/movies/index/#{Vote.find(params[:id]).downvote_id}", :title => Movie.find(Vote.find(params[:id]).downvote_id).title.upcase) %>
-</p>
+  <div class="topNav">
+    <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+    <%= link_to("Vote Record", votes_path, :method => :get) %>
+    <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
+    <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+  </div>
+
+  <div class="flavorTxt">
+  You chose... wisely
+  </div>
+
+  <div class="resultItem">
+    <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).upvote_id).poster), "/movies/index/#{Vote.find(params[:id]).upvote_id}", class: "votes_form", :title => Movie.find(Vote.find(params[:id]).upvote_id).title.upcase) %>
+
+    <div class="resultTxt">TROUNCES</div>
+
+    <%= link_to(image_tag(Movie.find(Vote.find(params[:id]).downvote_id).poster), "/movies/index/#{Vote.find(params[:id]).downvote_id}", class: "votes_form", :title => Movie.find(Vote.find(params[:id]).downvote_id).title.upcase) %>
+    <div style="clear: both"></div>
+  </div>
+
+</div>

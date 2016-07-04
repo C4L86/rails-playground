@@ -1,34 +1,43 @@
-<h2>STATS FOR</h2>
-<h2><%= @movie.title.upcase %></h2>
+<div class="row">  
 
-<p>
-  <%= link_to("Back", :back, {class: "back_button"}) %>
-  <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
-  <%= link_to("Vote Record", votes_path, :method => :get) %>
-  <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
-  <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
-</p>
+  <div class="headerItem">
+    <div class="header">Superior Sequel</div>
+    <div class="subHeader">80's Edition</div>
+    <div class="pageHeader"><%= @movie.title.upcase %> STATS</div>
+  </div>
 
-<p>
-  <%= link_to("Total Rounds", "/movies/show/#{@movie.id}") %>: <%= @movie.total_rounds %>
-  <br />
-  Upvotes: <%= @movie.movie_upvotes %>
-  <br />
-  Downvotes: <%= @movie.movie_downvotes %>
-  <br />
-  Win Percent: <%= @movie.movie_win_percent %>
-  <br />
-  Loss Percent: <%= @movie.movie_loss_percent %>
-  <br />
-  Button 1 Upvotes: <%= @movie.movie_button_1_up %>
-  <br />
-  Button 1 Downvotes: <%= @movie.movie_button_1_down %>
-  <br />
-  Button 2 Upvotes: <%= @movie.movie_button_2_up %>
-  <br />
-  Button 2 Downvotes: <%= @movie.movie_button_2_down %>
-</p>
+  <div class="topNav">
+    <%= link_to("Back", :back, {class: "back_button"}) %>
+    <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+    <%= link_to("Vote Record", votes_path, :method => :get) %>
+    <%= link_to("Your Profile", "/users/show", {class: "user_profile"}) %>
+    <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+  </div>
 
-<p>
-  <%= image_tag(@movie.poster, title: @movie.title.upcase) %>
-</p>
+  <div class="mainItem">
+    <p>
+      <%= link_to("Total Rounds", "/movies/show/#{@movie.id}") %>: <%= @movie.total_rounds %>
+      <br />
+      Upvotes: <%= @movie.movie_upvotes %>
+      <br />
+      Downvotes: <%= @movie.movie_downvotes %>
+      <br />
+      Win Percent: <%= @movie.movie_win_percent %>
+      <br />
+      Loss Percent: <%= @movie.movie_loss_percent %>
+      <br />
+      Button 1 Upvotes: <%= @movie.movie_button_1_up %>
+      <br />
+      Button 1 Downvotes: <%= @movie.movie_button_1_down %>
+      <br />
+      Button 2 Upvotes: <%= @movie.movie_button_2_up %>
+      <br />
+      Button 2 Downvotes: <%= @movie.movie_button_2_down %>
+    </p>
+
+    <p>
+      <%= image_tag(@movie.poster, title: @movie.title.upcase) %>
+    </p>
+  </div>
+
+</div>

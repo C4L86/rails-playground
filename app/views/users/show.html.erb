@@ -1,23 +1,31 @@
-<h1>Your Profile</h1>
+<div class="row">
 
-<p>
-<%= link_to("Back", :back, {class: "back_button"}) %>
-<%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
-<%= link_to("Vote Record", votes_path, :method => :get) %>
-<%= link_to("Edit Profile", edit_user_registration_path, :method => :get) %>
-<%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
-</p>
+  <div class="headerItem">
+    <div class="header">Superior Sequel</div>
+    <div class="subHeader">80's Edition</div>
+    <div class="pageHeader">YOUR PROFILE</div>
+  </div>
 
-<p>
-  <h4>Email</h4>
-  <%= @user.email %>
-  <br />
-  <h4>Your Votes</h4>
-  Total Votes: <%= @votes.count %>
-  <br />
-  <br />
-  <% @votes.each do |vote| %>
-    <%= link_to("#{Movie.find(vote.upvote_id).title}", "/movies/index/#{vote.upvote_id}") %> beat <%= link_to("#{Movie.find(vote.downvote_id).title}", "/movies/index/#{vote.downvote_id}") %>
+  <div class="topNav">
+    <%= link_to("Back", :back, {class: "back_button"}) %>
+    <%= link_to("Vote Again?", "/", {class: "new_vote"}) %>
+    <%= link_to("Vote Record", votes_path, :method => :get) %>
+    <%= link_to("Edit Profile", edit_user_registration_path, :method => :get) %>
+    <%= link_to("Log Out", destroy_user_session_path, :method => :delete) %>
+  </div>
+
+  <div class="mainItem">
+    <h4>Email</h4>
+    <%= @user.email %>
     <br />
-  <% end %>
-</p>
+    <h4>Your Votes</h4>
+    Total Votes: <%= @votes.count %>
+    <br />
+    <br />
+    <% @votes.each do |vote| %>
+      <%= link_to("#{Movie.find(vote.upvote_id).title}", "/movies/index/#{vote.upvote_id}") %> beat <%= link_to("#{Movie.find(vote.downvote_id).title}", "/movies/index/#{vote.downvote_id}") %>
+      <br />
+    <% end %>
+  </div>
+
+</div>
